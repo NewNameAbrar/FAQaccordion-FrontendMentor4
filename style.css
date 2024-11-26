@@ -24,7 +24,11 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: url('/assets/images/background-pattern-desktop.svg');
+  background: url('/assets/images/background-pattern-desktop.svg') no-repeat
+      center top,
+    hsl(275, 100%, 97%);
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
 #main {
@@ -67,6 +71,7 @@ body {
   border: none;
   width: 0;
   margin-right: 25px;
+  cursor: pointer;
 }
 
 #faqs h2 {
