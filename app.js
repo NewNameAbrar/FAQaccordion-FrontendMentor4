@@ -6,12 +6,14 @@ const image1 = document.querySelector('.plusMinusImg1');
 const ans1 = document.querySelector('.answer1');
 
 const fillTheAnswer1 = function () {
-  if (openOrClose1) {
+  if (!openOrClose1) {
     image1.src = '/assets/images/icon-minus.svg';
     ans1.innerHTML =
       "Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for all levels and ideal for portfolio building.";
     ans1.style.marginTop = '20px';
-    openOrClose1 = false;
+    openOrClose1 = true;
+
+    clickCount1 = 0;
     hideTheAnswer2();
     hideTheAnswer3();
     hideTheAnswer4();
@@ -19,18 +21,18 @@ const fillTheAnswer1 = function () {
 };
 
 const hideTheAnswer1 = function () {
-  if (!openOrClose1) {
+  if (openOrClose1) {
     image1.src = '/assets/images/icon-plus.svg';
     ans1.innerHTML = '';
     ans1.style.marginTop = '0';
-    openOrClose1 = true;
-    clickCount1 = 0;
+    openOrClose1 = false;
   }
 };
 
 ques1.addEventListener('click', () => {
   clickCount1++;
-  clickCount1 % 2 === 0 ? hideTheAnswer1() : fillTheAnswer1();
+
+  clickCount1 % 2 === 0 ? fillTheAnswer1() : hideTheAnswer1();
 });
 
 //2
@@ -67,6 +69,8 @@ const hideTheAnswer2 = function () {
 
 ques2.addEventListener('click', () => {
   clickCount2++;
+  clickCount1 = 1;
+
   clickCount2 % 2 === 0 ? hideTheAnswer2() : fillTheAnswer2();
 });
 
@@ -104,6 +108,8 @@ const hideTheAnswer3 = function () {
 
 ques3.addEventListener('click', () => {
   clickCount3++;
+  clickCount1 = 1;
+
   clickCount3 % 2 === 0 ? hideTheAnswer3() : fillTheAnswer3();
 });
 
@@ -141,5 +147,7 @@ const hideTheAnswer4 = function () {
 
 ques4.addEventListener('click', () => {
   clickCount4++;
+  clickCount1 = 1;
+
   clickCount4 % 2 === 0 ? hideTheAnswer4() : fillTheAnswer4();
 });
